@@ -1,4 +1,5 @@
 const http = require("http");
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const socketIO = require("socket.io");
@@ -9,9 +10,13 @@ app.use(cors());
 
 const users = [{}];
 
-app.get("/", (req, res) => {
-    res.send("Hell its working");
-})
+
+
+// app.get("/", (req, res) => {
+//     res.send("Hell its working");
+// })
+
+
 
 
 const server = http.createServer(app);
@@ -40,6 +45,11 @@ io.on("connection", (socket) => {
 
  
 });
+
+
+// app.get('*',(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,'build','index.html'))
+// })
 
 server.listen(port, () => {
     console.log(`server is running on http://localhost:${port}`);
